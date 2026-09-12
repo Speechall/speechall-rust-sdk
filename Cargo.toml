@@ -1,0 +1,29 @@
+[package]
+name = "speechall"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+description = "Rust SDK for the Speechall speech-to-text API"
+license = "MIT"
+repository = "https://github.com/Speechall/speechall-rust-sdk"
+homepage = "https://docs.speechall.com"
+keywords = ["speechall", "speech-to-text", "transcription", "api", "sdk"]
+categories = ["api-bindings", "multimedia::audio"]
+
+[dependencies]
+bytes = "1"
+http = "1"
+mime = "0.3"
+# The generator's runtime support crate has not yet been published to
+# crates.io. Pin its upstream source revision so generated code is reproducible.
+openapi-support = { git = "https://github.com/atacan/rust-openapi-generator.git", rev = "c3a8bc1da29a205dba06283479cad4189d82150a", features = ["client"] }
+reqwest = { version = "0.12", features = ["json", "multipart", "stream"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+
+[[example]]
+name = "transcribe-file"
+path = "example/transcribe_file.rs"
