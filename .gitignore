@@ -1,2 +1,11 @@
 /target/
+.env
+.env.*
+*.key
+*.pem
+*.p12
+credentials.json
 
+# Secret scanning reports
+gitleaks-report.json
+trufflehog-report.json
