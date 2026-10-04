@@ -179,8 +179,6 @@ pub enum TranscriptionModelIdentifier {
     TogetheraiNvidiaParakeetTdt06BV3,
     #[serde(rename = "togetherai.thinkingmachines-inkling")]
     TogetheraiThinkingmachinesInkling,
-    #[serde(rename = "togetherai.thinkingmachines-inkling-small")]
-    TogetheraiThinkingmachinesInklingSmall,
     #[serde(rename = "xai.grok-stt")]
     XaiGrokStt,
 }

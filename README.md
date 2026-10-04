@@ -5,7 +5,7 @@ generated from the shared Speechall OpenAPI document.
 
 ```toml
 [dependencies]
-speechall = "0.2"
+speechall = "0.3"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 ```
 
