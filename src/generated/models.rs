@@ -19,8 +19,6 @@ use serde::{Deserialize, Serialize};
 /// The identifier for the underlying Speech-to-Text service provider (e.g., 'openai', 'deepgram').
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub enum TranscriptionProvider {
-    #[serde(rename = "amazon")]
-    Amazon,
     #[serde(rename = "assemblyai")]
     Assemblyai,
     #[serde(rename = "azure")]
@@ -35,8 +33,6 @@ pub enum TranscriptionProvider {
     Gemini,
     #[serde(rename = "gladia")]
     Gladia,
-    #[serde(rename = "google")]
-    Google,
     #[serde(rename = "groq")]
     Groq,
     #[serde(rename = "ibm")]
@@ -47,6 +43,10 @@ pub enum TranscriptionProvider {
     Openai,
     #[serde(rename = "revai")]
     Revai,
+    #[serde(rename = "smallestai")]
+    Smallestai,
+    #[serde(rename = "soniox")]
+    Soniox,
     #[serde(rename = "speechmatics")]
     Speechmatics,
     #[serde(rename = "togetherai")]
@@ -61,8 +61,6 @@ pub type OpenTranscriptionModelIdentifier = String;
 /// Unique identifier for a specific Speech-to-Text model, composed as `provider.model_name`. Used to select the engine for transcription.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub enum TranscriptionModelIdentifier {
-    #[serde(rename = "amazon.transcribe")]
-    AmazonTranscribe,
     #[serde(rename = "assemblyai.universal-2")]
     AssemblyaiUniversal2,
     #[serde(rename = "assemblyai.universal-3-5-pro")]
@@ -145,10 +143,6 @@ pub enum TranscriptionModelIdentifier {
     GeminiGemini25Pro,
     #[serde(rename = "gladia.standard")]
     GladiaStandard,
-    #[serde(rename = "google.enhanced")]
-    GoogleEnhanced,
-    #[serde(rename = "google.standard")]
-    GoogleStandard,
     #[serde(rename = "groq.whisper-large-v3")]
     GroqWhisperLargeV3,
     #[serde(rename = "groq.whisper-large-v3-turbo")]
@@ -171,6 +165,12 @@ pub enum TranscriptionModelIdentifier {
     RevaiFusion,
     #[serde(rename = "revai.machine")]
     RevaiMachine,
+    #[serde(rename = "smallestai.pulse-pro")]
+    SmallestaiPulsePro,
+    #[serde(rename = "smallestai.pulse")]
+    SmallestaiPulse,
+    #[serde(rename = "soniox.stt-async-v5")]
+    SonioxSttAsyncV5,
     #[serde(rename = "speechmatics.enhanced")]
     SpeechmaticsEnhanced,
     #[serde(rename = "speechmatics.standard")]
