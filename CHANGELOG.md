@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 — 2026-10-04
+
+### Removed
+
+- The `togetherai.thinkingmachines-inkling-small` model enum variant. The
+  `togetherai.thinkingmachines-inkling` model remains supported. This is a
+  breaking API change.
+
 ## 0.2.0 — 2026-10-04
 
 ### Added
