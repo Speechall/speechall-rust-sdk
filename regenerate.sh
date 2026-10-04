@@ -12,4 +12,4 @@ if [ ! -f "$spec" ]; then
 fi
 
 "$generator" "$spec" --generate types,client --output-dir src/generated
-
+"${RUSTFMT:-rustfmt}" --edition 2021 src/generated/models.rs src/generated/views.rs src/generated/client.rs

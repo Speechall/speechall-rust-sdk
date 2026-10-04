@@ -5,7 +5,7 @@ generated from the shared Speechall OpenAPI document.
 
 ```toml
 [dependencies]
-speechall = "0.1"
+speechall = "0.2"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 ```
 
@@ -44,7 +44,7 @@ For large uploads, pass a streaming `reqwest::Body` to `Client::transcribe`.
 
 ## Regenerating
 
-Install [`oapi-to-rust`](https://github.com/atacan/rust-openapi-generator)
+Install [`oapi-to-rust`](https://github.com/atacan/rust-openapi-generator) 0.3.2
 and run:
 
 ```sh
@@ -57,6 +57,9 @@ the same source document used by the other SDKs. It intentionally generates
 only `models.rs`, `views.rs`, and `client.rs`; no server surface is generated.
 Set `OAPI_TO_RUST` to use a different generator binary, for example a local
 development build.
+
+The script formats the generated output with `rustfmt` so regenerating it
+preserves the repository's Rust formatting.
 
 The generator's `openapi-support` runtime crate is currently consumed from its
 pinned upstream Git revision; Cargo.lock records the exact resolved dependency
