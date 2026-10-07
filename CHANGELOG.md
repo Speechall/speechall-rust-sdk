@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0 — 2026-10-07
+
+### Added
+
+- The `openai.gpt-transcribe` transcription model enum variant.
+
 ## 0.3.0 — 2026-10-04
 
 ### Removed

@@ -159,6 +159,8 @@ pub enum TranscriptionModelIdentifier {
     OpenaiGpt4OTranscribe,
     #[serde(rename = "openai.gpt-4o-transcribe-diarize")]
     OpenaiGpt4OTranscribeDiarize,
+    #[serde(rename = "openai.gpt-transcribe")]
+    OpenaiGptTranscribe,
     #[serde(rename = "openai.whisper-1")]
     OpenaiWhisper1,
     #[serde(rename = "revai.fusion")]
