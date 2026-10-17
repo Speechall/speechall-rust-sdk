@@ -67,6 +67,8 @@ pub enum TranscriptionModelIdentifier {
     AssemblyaiUniversal35Pro,
     #[serde(rename = "azure.standard")]
     AzureStandard,
+    #[serde(rename = "microsoft.mai-transcribe-2")]
+    MicrosoftMaiTranscribe2,
     #[serde(rename = "cloudflare.whisper")]
     CloudflareWhisper,
     #[serde(rename = "cloudflare.whisper-large-v3-turbo")]
