@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0 — 2026-10-17
+
+### Added
+
+- The `microsoft.mai-transcribe-2` transcription model enum variant.
+
 ## 0.4.0 — 2026-10-07
 
 ### Added
