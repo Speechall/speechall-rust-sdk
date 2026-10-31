@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.0 — 2026-10-31
+
+### Added
+
+- The `gemini.gemini-3.5-transcribe` transcription model enum variant.
+
 ## 0.5.0 — 2026-10-17
 
 ### Added

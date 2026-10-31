@@ -143,6 +143,8 @@ pub enum TranscriptionModelIdentifier {
     GeminiGemini25FlashLite,
     #[serde(rename = "gemini.gemini-2.5-pro")]
     GeminiGemini25Pro,
+    #[serde(rename = "gemini.gemini-3.5-transcribe")]
+    GeminiGemini35Transcribe,
     #[serde(rename = "gladia.standard")]
     GladiaStandard,
     #[serde(rename = "groq.whisper-large-v3")]
