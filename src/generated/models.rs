@@ -16,7 +16,12 @@ use std::collections::BTreeMap;
 use openapi_support::optional::OptionalField;
 use serde::{Deserialize, Serialize};
 
-/// The identifier for the underlying Speech-to-Text service provider (e.g., 'openai', 'deepgram').
+/// An opaque Speech-to-Text provider identifier. New providers can appear without an SDK update. Known values are listed in `TranscriptionProvider`.
+///
+pub type OpenTranscriptionProvider = String;
+
+/// Known provider identifiers at SDK generation time. Helper only and non-exhaustive. Provider fields use `OpenTranscriptionProvider`.
+///
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub enum TranscriptionProvider {
     #[serde(rename = "assemblyai")]
@@ -58,7 +63,8 @@ pub enum TranscriptionProvider {
 /// An opaque Speech-to-Text model identifier in `provider.model_name` form. Obtain currently available values from the `/speech-to-text-models` endpoint.
 pub type OpenTranscriptionModelIdentifier = String;
 
-/// Unique identifier for a specific Speech-to-Text model, composed as `provider.model_name`. Used to select the engine for transcription.
+/// Known model identifiers (`provider.model_name`) at SDK generation time. Use these constants with `OpenTranscriptionModelIdentifier` fields. The live list is available at `/speech-to-text-models`.
+///
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub enum TranscriptionModelIdentifier {
     #[serde(rename = "assemblyai.universal-2")]
@@ -819,8 +825,7 @@ pub struct TranscriptionWord {
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct TranscriptionResponseFallback(pub serde_json::Value);
 
-/// The primary type or training domain of the model. Helps identify suitability for different audio types.
-/// Nullable: instances may be JSON `null`; reference sites wrap this type in `Option<T>`.
+/// Known `SpeechToTextModel.model_type` values for use as constants. The field accepts any string.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub enum SpeechToTextModelModelType {
     #[serde(rename = "general")]
@@ -841,8 +846,7 @@ pub enum SpeechToTextModelModelType {
     Meeting,
 }
 
-/// A general indication of the model's expected accuracy level relative to other models. Not a guaranteed metric.
-/// Nullable: instances may be JSON `null`; reference sites wrap this type in `Option<T>`.
+/// Known `SpeechToTextModel.accuracy_tier` values for use as constants. The field accepts any string.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub enum SpeechToTextModelAccuracyTier {
     #[serde(rename = "basic")]
@@ -864,8 +868,10 @@ pub struct SpeechToTextModel {
     /// A user-friendly name for the model.
     /// Constraints (enforced by generated routers on server requests, companion §9; lenient on client decode): examples x1.
     pub display_name: String,
-    /// The identifier for the underlying Speech-to-Text service provider (e.g., 'openai', 'deepgram').
-    pub provider: TranscriptionProvider,
+    /// An opaque Speech-to-Text provider identifier. New providers can appear without an SDK update. Known values are listed in `TranscriptionProvider`.
+    ///
+    /// Constraints (enforced by generated routers on server requests, companion §9; lenient on client decode): examples x1.
+    pub provider: OpenTranscriptionProvider,
     /// A brief description of the model, its intended use case, or version notes.
     /// Constraints (enforced by generated routers on server requests, companion §9; lenient on client decode): examples x1.
     #[serde(default)]
@@ -916,14 +922,14 @@ pub struct SpeechToTextModel {
     /// Constraints (enforced by generated routers on server requests, companion §9; lenient on client decode): format `date`; examples x1.
     #[serde(default)]
     pub release_date: Option<String>,
-    /// The primary type or training domain of the model. Helps identify suitability for different audio types.
+    /// The primary type or training domain of the model. Helps identify suitability for different audio types. Known values are listed in `SpeechToTextModelModelType`.
     /// Constraints (enforced by generated routers on server requests, companion §9; lenient on client decode): examples x1.
     #[serde(default)]
-    pub model_type: Option<SpeechToTextModelModelType>,
-    /// A general indication of the model's expected accuracy level relative to other models. Not a guaranteed metric.
+    pub model_type: Option<String>,
+    /// A general indication of the model's expected accuracy level relative to other models. Not a guaranteed metric. Known values are listed in `SpeechToTextModelAccuracyTier`.
     /// Constraints (enforced by generated routers on server requests, companion §9; lenient on client decode): examples x1.
     #[serde(default)]
-    pub accuracy_tier: Option<SpeechToTextModelAccuracyTier>,
+    pub accuracy_tier: Option<String>,
     /// A list of audio encodings that this model supports or is optimized for (e.g., LINEAR16, FLAC, MP3, Opus).
     /// Constraints (enforced by generated routers on server requests, companion §9; lenient on client decode): examples x1.
     #[serde(default)]

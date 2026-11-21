@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.0 — 2026-11-21
+
+### Changed
+
+- `SpeechToTextModel.provider` now uses `OpenTranscriptionProvider` (a `String`
+  alias). `model_type` and `accuracy_tier` now use `Option<String>`. Update code
+  that constructs or matches these fields to use string values. The known-value
+  enums are still available as helpers.
+
 ## 0.6.0 — 2026-10-31
 
 ### Added
